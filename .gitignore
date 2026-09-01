@@ -1,0 +1,20 @@
+# Secrets
+.env
+
+# Telethon session files
+*.session
+*.session-journal
+
+# Database
+# Note: Allowed data/ and *.db to be committed so Render has the initial keywords.
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# OS
+.DS_Store

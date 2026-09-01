@@ -1,0 +1,22 @@
+app = "telegram-job-filter"
+primary_region = "ams" # You can change this to any Fly.io region, e.g., 'fra' (Frankfurt), 'lhr' (London), 'cdg' (Paris)
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "8080"
+  DB_PATH = "/app/data/job_filter.db"
+  SESSION_NAME = "/app/data/job_filter_session"
+
+[mounts]
+  source = "tg_bot_data"
+  destination = "/app/data"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
